@@ -1,33 +1,12 @@
-void main() {
-  var manager1 = Manager<Person>();
-  manager1.eat();
-  var manager2 = Manager<Student>();
-  manager2.eat();
-  var manager3 = Manager();
-  manager3.eat();
-  //var manager4 = Manager<Dog>(); // error
-}
+main() {
+  Map<int, String> testMap = {1: 'Red', 2: 'Orange', 3: 'Yellow'};
+  testMap[4] = 'Green';
 
-class Person {
-  eat() {
-    print('Person eats a food');
-  }
-}
+  testMap.update(1, (value) => 'NewRed', ifAbsent: () => 'NewColor');
+  testMap.update(5, (value) => 'NewBlue', ifAbsent: () => 'NewColor');
 
-class Student extends Person {
-  eat() {
-    print('Student eats a hambuger');
-  }
-}
+  print(testMap[1]);
+  print(testMap[5]);
 
-class Manager<T extends Person> {
-  eat() {
-    print('Manager eats a sandwich');
-  }
-}
-
-class Dog {
-  eat() {
-    print('Dog eats a dog food');
-  }
+  print(testMap);
 }

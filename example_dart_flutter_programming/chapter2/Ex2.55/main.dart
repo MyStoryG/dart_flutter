@@ -1,12 +1,10 @@
-import 'dart:isolate';
-
 void main() {
-//  ReceivePort mainReceivePort = new ReceivePort(); ①
-  Isolate.spawn(isolateTest, 1);
-  Isolate.spawn(isolateTest, 2);
-  Isolate.spawn(isolateTest, 3);
+  var person = Person();
+  print(person.getName<String>('Kim'));
 }
 
-isolateTest(var m) {
-  print('isolate no.$m');
+class Person {
+  T getName<T>(T param) {
+    return param;
+  }
 }

@@ -1,5 +1,4 @@
 main() {
-  var person = Person();
   var kim = Person.init('Kim');
 }
 

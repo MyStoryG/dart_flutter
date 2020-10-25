@@ -1,14 +1,11 @@
 main() {
-  var person = Person.initName('Kim');
+  var person = Person();
 }
 
 class Person {
   String name;
-  int age;
 
-  Person(this.name, this.age) {
-    print('This is Person($name, $age) Constructor!');
+  Person() : name = 'Kim' {
+    print('This is Person($name) Constructor!');
   }
-
-  Person.initName(String name) : this(name, 20);
 }

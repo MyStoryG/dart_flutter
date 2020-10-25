@@ -1,6 +1,5 @@
 main() {
   print('start');
-  var stream = Stream.periodic(Duration(seconds: 1), (x) => x).take(5);
-  stream.listen(print);
+  var stream = Stream.value(100).listen((dynamic x) => print('getData : $x'));
   print('do something');
 }

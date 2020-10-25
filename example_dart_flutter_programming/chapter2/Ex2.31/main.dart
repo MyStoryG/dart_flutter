@@ -1,16 +1,20 @@
 main() {
   var person = Person();
+  var init = Person.init();
 }
 
 class Person {
-  String name;
-  int age;
-
   Person() {
     print('This is Person Constructor!');
   }
 
-  Person(String name) {
-    print('This is Person($name) Constructor!');
+  Person.init() {
+    print('This is Person.init Constructor!');
+  }
+}
+
+class Student extends Person {
+  Student() {
+    print('This is Student Constructor!');
   }
 }

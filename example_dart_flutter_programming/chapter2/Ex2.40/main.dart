@@ -1,32 +1,42 @@
 main() {
-  Student student = Student();
-  student.studentID = 2020;
-  student.setName('Kim');
-  student.showInfo();
+  Person student = Person('Student');
+  Person employee = Person('Employee');
+
+  print('type = ${student.getType()}');
+  print('type = ${employee.getType()}');
 }
 
 class Person {
-  String name;
+  Person.init();
 
-  setName(String name) {
-    this.name = name;
+  factory Person(String type) {
+    switch (type) {
+      case 'Student':
+        return Student();
+      case 'Employee':
+        return Employee();
+    }
   }
 
-  getName() {
-    return name;
-  }
-
-  showInfo() {
-    print('name is $name');
+  String getType() {
+    return 'Person';
   }
 }
 
 class Student extends Person {
-  int studentID;
+  Student() : super.init();
 
   @override
-  showInfo() {
-    print('name is ${super.getName()} and ID is $studentID.');
-//    print('name is $name and ID is $studentID.');
+  String getType() {
+    return 'Student';
+  }
+}
+
+class Employee extends Person {
+  Employee() : super.init();
+
+  @override
+  String getType() {
+    return 'Employee';
   }
 }

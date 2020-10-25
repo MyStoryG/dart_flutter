@@ -1,12 +1,7 @@
-class Person {
-  String _name;
-
-  String get name => _name;
-  set setName(String name) => _name = name;
-}
+import 'package:dartEx01/src/Person.dart';
 
 main() {
-  Person person = Person();
-  person.setName = 'Kim';
-  print(person.name);
+  Person p = Person();
+  p.eat();
+//  p._sleep(); error
 }

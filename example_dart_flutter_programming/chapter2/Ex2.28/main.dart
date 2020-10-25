@@ -1,11 +1,14 @@
 main() {
-  var student = Student();
+  Person person = Person();
+  person.name = 'Hong';
+  print('person name = ${person.getName()}');
 }
 
 class Person {
-  Person() {
-    print('This is Person constructor!');
+  String name;
+  int age;
+
+  getName() {
+    return name;
   }
 }
-
-class Student extends Person {}

@@ -1,15 +1,14 @@
 main() {
-  Person person = Developer();
-  person.eat();
+  Person person = Person();
+  print(person.name);
+  person.name = null;
+  print(person.name);
 }
 
-abstract class Person {
-  eat();
-}
+class Person {
+  String _name;
 
-class Developer implements Person {
-  @override
-  eat() {
-    print('Developer eat a meal');
-  }
+  String get name => (_name == null) ? 'Lee' : _name;
+
+  set name(String name) => (name == null) ? _name = 'Park' : _name = name;
 }

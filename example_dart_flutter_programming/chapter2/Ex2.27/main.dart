@@ -1,7 +1,10 @@
 main() {
-  Person person = Person();
-  person.name = 'Hong';
-  print('person name = ${person.getName()}');
+  var student = new Person();
+  var teacher = Person();
+  student.name = 'Kim';
+  teacher.name = 'Park';
+  print('student name = ${student.getName()}');
+  print('student name = ${teacher.getName()}');
 }
 
 class Person {

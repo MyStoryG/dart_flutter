@@ -3,15 +3,9 @@ main() {
 }
 
 class Person {
-  String name;
-
   Person() {
-    print('This is Person Constructor!');
+    print('This is Person constructor!');
   }
 }
 
-class Student extends Person {
-  Student() {
-    print('This is Student Constructor!');
-  }
-}
+class Student extends Person {}

@@ -1,9 +1,7 @@
 main() {
-//  Person person = Developer();
-  Developer person = Developer();
+  Person person = Developer();
+//  Person person = Person(); error
   person.eat();
-  person.sleep();
-  person.work();
 }
 
 abstract class Person {
@@ -14,13 +12,7 @@ abstract class Person {
   }
 }
 
-abstract class Junior {
-  work() {
-    print('work hard');
-  }
-}
-
-class Developer implements Person, Junior {
+class Developer implements Person {
   @override
   eat() {
     print('Developer eat a meal');
@@ -28,9 +20,5 @@ class Developer implements Person, Junior {
 
   sleep() {
     print('Developer must sleep');
-  }
-
-  work() {
-    print('Junior developer works hard');
   }
 }

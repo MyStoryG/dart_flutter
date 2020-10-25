@@ -1,28 +1,12 @@
 import 'dart:isolate';
 
-main() {
-  int counter = 0;
-
-  ReceivePort mainReceivePort = new ReceivePort();
-
-  mainReceivePort.listen((fooSendPort) {
-    if (fooSendPort is SendPort) {
-      fooSendPort.send(counter++);
-    } else {
-      print(fooSendPort);
-    }
-  });
-
-  for (var i = 0; i < 5; i++) {
-    Isolate.spawn(foo, mainReceivePort.sendPort);
-  }
+void main() {
+//  ReceivePort mainReceivePort = new ReceivePort(); ①
+  Isolate.spawn(isolateTest, 1);
+  Isolate.spawn(isolateTest, 2);
+  Isolate.spawn(isolateTest, 3);
 }
 
-foo(SendPort mainSendPort) {
-  ReceivePort fooReceivePort = new ReceivePort();
-  mainSendPort.send(fooReceivePort.sendPort);
-
-  fooReceivePort.listen((msg) {
-    mainSendPort.send('received: $msg');
-  });
+isolateTest(var m) {
+  print('isolate no.$m');
 }

@@ -1,25 +1,23 @@
 main() {
-  int a = 10;
-  int b = 20;
+  Employee employee = Employee()
+    ..name = 'Kim'
+    ..setAge(25)
+    ..showInfo();
 
-  if (a < b) {
-    print('$a < $b');
-  } else {
-    print('$a >= $b');
+  employee.name = 'Park';
+  employee.setAge(30);
+  employee.showInfo();
+}
+
+class Employee {
+  var name = 'employee';
+  int age;
+
+  setAge(int age) {
+    this.age = age;
   }
 
-  assert(a > b);
-
-  var port = [22, 25, 53];
-  switch (port[0]) {
-    case 22:
-      print('SSH : 22');
-      break;
-    case 25:
-      print('SMTP : 25');
-      break;
-    case 53:
-      print('DNS : 53');
-      break;
+  showInfo() {
+    print('$name is $age');
   }
 }

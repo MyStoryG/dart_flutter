@@ -1,18 +1,28 @@
+import 'dart:isolate';
+
 main() {
-  print('start');
+  int counter = 0;
 
-  Future<String> myFuture = new Future(() {
-    for (int i = 0; i < 10000000000; i++) {
-      // Ten billion times. My PC takes about four seconds.
+  ReceivePort mainReceivePort = new ReceivePort();
+
+  mainReceivePort.listen((fooSendPort) {
+    if (fooSendPort is SendPort) {
+      fooSendPort.send(counter++);
+    } else {
+      print(fooSendPort);
     }
-    return 'I got lots of data! There are 10000000000.';
   });
 
-  myFuture.then((data) {
-    print(data);
-  }, onError: (e) {
-    print(e);
-  });
+  for (var i = 0; i < 5; i++) {
+    Isolate.spawn(foo, mainReceivePort.sendPort);
+  }
+}
 
-  print('do something');
+foo(SendPort mainSendPort) {
+  ReceivePort fooReceivePort = new ReceivePort();
+  mainSendPort.send(fooReceivePort.sendPort);
+
+  fooReceivePort.listen((msg) {
+    mainSendPort.send('received: $msg');
+  });
 }

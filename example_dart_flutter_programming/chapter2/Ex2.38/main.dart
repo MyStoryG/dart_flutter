@@ -1,17 +1,14 @@
 main() {
-  Person person1 = const Person('Kim', 20);
-  Person person2 = const Person('Kim', 20);
-  Person person3 = new Person('Kim', 20);
-  Person person4 = new Person('Kim', 20);
-
-  print(identical(person1, person2));
-  print(identical(person2, person3));
-  print(identical(person3, person4));
+  var person = Person.initName('Kim');
 }
 
 class Person {
-  final String name;
-  final num age;
+  String name;
+  int age;
 
-  const Person(this.name, this.age);
+  Person(this.name, this.age) {
+    print('This is Person($name, $age) Constructor!');
+  }
+
+  Person.initName(String name) : this(name, 20);
 }

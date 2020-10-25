@@ -1,11 +1,36 @@
 main() {
-  List<dynamic> list1 = [1, 2.5, 'test'];
-  dynamic list2 = [1, 2.5, 'test'];
-  list2 = 1;
-  var list3 = [1, 2.5, 'test'];
-  // list3 = 1;
+//  Person person = Developer();
+  Developer person = Developer();
+  person.eat();
+  person.sleep();
+  person.work();
+}
 
-  for (int i = 0; i < list1.length; i++) {
-    print(list1[i]);
+abstract class Person {
+  eat();
+
+  sleep() {
+    print('Person must sleep');
+  }
+}
+
+abstract class Junior {
+  work() {
+    print('work hard');
+  }
+}
+
+class Developer implements Person, Junior {
+  @override
+  eat() {
+    print('Developer eat a meal');
+  }
+
+  sleep() {
+    print('Developer must sleep');
+  }
+
+  work() {
+    print('Junior developer works hard');
   }
 }

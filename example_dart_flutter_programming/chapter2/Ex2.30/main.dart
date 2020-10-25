@@ -1,15 +1,12 @@
 main() {
-  var person = Person();
-  var init = Person.init();
+  var student = Student();
 }
 
 class Person {
+  String name;
+
   Person() {
     print('This is Person Constructor!');
-  }
-
-  Person.init() {
-    print('This is Person.init Constructor!');
   }
 }
 

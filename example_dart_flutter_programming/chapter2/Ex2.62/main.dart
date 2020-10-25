@@ -1,7 +1,7 @@
-main() async {
+main() {
   print('start');
 
-  var myFuture = await getData();
+  var myFuture = getData();
   print('result : $myFuture');
 
   print('do something');

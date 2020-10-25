@@ -1,6 +1,5 @@
 main() {
   var person = Person();
-  var kim = Person.init('Kim');
 }
 
 class Person {
@@ -11,7 +10,7 @@ class Person {
     print('This is Person Constructor!');
   }
 
-  Person.init(String name) {
+  Person(String name) {
     print('This is Person($name) Constructor!');
   }
 }
