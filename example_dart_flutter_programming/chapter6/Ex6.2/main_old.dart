@@ -32,17 +32,14 @@ class FirstPageState extends State<FirstPage> {
             Center(
               child: RaisedButton(
                 onPressed: () async {
-                  await Navigator.push(
+                  result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SecondPage(
+                        builder: (context) =>
+                            SecondPage(
                               data: '(request)',
                             )),
-                  ).then((value) {
-                    setState(() {
-                      result = value;
-                    });
-                  });
+                  );
                 },
                 child: Text('Go to next page'),
               ),
