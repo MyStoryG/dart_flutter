@@ -4,6 +4,6 @@ main() {
 //  print('${getAddress(district: '강남', zipCode: '012345')}'); error
 }
 
-String getAddress(String city, {String district, String zipCode = '111222'}) {
+String getAddress(String city, {required String district, String zipCode = '111222'}) {
   return '$city시 $district구 $zipCode';
 }
