@@ -14,5 +14,5 @@ main() {
 }
 
 class Employee {
-  var name = 'employee';
+  String? name = 'employee';
 }
